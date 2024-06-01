@@ -31,3 +31,5 @@
                   "file:" (file-name-directory buffer-file-name) org-ipe-folder (format "/%s.svg" path))))
 
 (add-to-list 'org-file-apps '("\\.svg\\'" . org-ipe-open))
+
+(provide 'org-ipe)
