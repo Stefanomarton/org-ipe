@@ -1,0 +1,21 @@
+* ORG-IPE
+
+Several years ago I was impressed with this [[https://castel.dev/post/lecture-notes-2/][post]] from Gilles Castel, but personally I find Inkscape too much
+for what I need. I discover [[https://github.com/otfried/ipe][ipe]] a short time ago.
+
+This org package offer the ability to create and modify drawing with IPE, that is obviously a dependency.
+
+I usually export my document with org-latex backend, in order to correctly export ~svg~ you must include:
+
+#+begin_src org
+#+LATEX_HEADER: \usepackage[inkscapelatex=false]{svg} 
+#+end_src
+
+and then make sure that you have ~-shell-escape~ in your ~org-latex-pdf-process~ command. Like this:
+
+#+begin_src elisp
+(setq org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+#+end_src
+
